@@ -5,13 +5,13 @@ class Sudoku {
 public:
     Sudoku() { }
     ~Sudoku() { }
-    void enterDigits(int inputArr[9][9]);
+    void enterDigits(int** inputArr);
     void Print();
     bool Solve(int row, int col);
 
 private:
     int grid[9][9];
-    int N = 9;
+    static const int N = 9;
     int FF;
     bool RowisSafe(int row, int num);
     bool ColisSafe(int row, int num);

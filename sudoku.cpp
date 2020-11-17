@@ -1,8 +1,8 @@
 #include "sudoku.h"
 #include <iostream>
-void Sudoku::enterDigits(int inputArr[9][9])
-{
 
+void Sudoku::enterDigits(int** inputArr)
+{
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++)
             grid[i][j] = inputArr[i][j];
@@ -22,7 +22,6 @@ void Sudoku::Print()
 
 bool Sudoku::RowisSafe(int row, int num)
 {
-
     for (int i = 0; i < N; i++) {
         if (grid[row][i] == num) {
             return false;
@@ -34,7 +33,6 @@ bool Sudoku::RowisSafe(int row, int num)
 
 bool Sudoku::ColisSafe(int col, int num)
 {
-
     for (int i = 0; i < N; i++) {
         if (grid[i][col] == num)
             return false;
@@ -70,7 +68,7 @@ bool Sudoku::IsSafe(int row, int col, int num)
     if (!BoxisSafe(row, col, num)) {
         return false;
     }
-
+    std::cout << "Solved! \n";
     return true;
 }
 

@@ -1,22 +1,36 @@
 #include "sudoku.h"
-
+#include <iostream>
 int main()
 {
 
-    int grid[9][9] = { { 3, 0, 6, 5, 0, 8, 4, 0, 0 },
-        { 5, 2, 0, 0, 0, 0, 0, 0, 0 },
-        { 0, 8, 7, 0, 0, 0, 0, 3, 1 },
-        { 0, 0, 3, 0, 1, 0, 0, 8, 0 },
-        { 9, 0, 0, 8, 6, 3, 0, 0, 5 },
-        { 0, 5, 0, 0, 9, 0, 6, 0, 0 },
-        { 1, 3, 0, 0, 0, 0, 2, 5, 0 },
-        { 0, 0, 0, 0, 0, 0, 0, 7, 4 },
-        { 0, 0, 5, 2, 0, 6, 3, 0, 0 } };
+    int N = 9;
+    int** grid;
+    grid = new int*[N];
+    for (int i = 0; i < N; i++) {
+        grid[i] = new int[N];
+    }
+
+    std::cout << " Enter numbers (in an empty place insert 0) \n";
+
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            std::cin >> grid[i][j];
+        }
+    }
 
     Sudoku sud;
     sud.enterDigits(grid);
-    sud.Solve(0, 0);
-    sud.Print();
+
+    if (sud.Solve(0, 0)) {
+        std::cout << "Solved! \n";
+        sud.Print();
+    } else
+        std::cout << "Is not solved\n";
+
+    for (int i = 0; i < N; i++) {
+        delete[] grid[i];
+    }
+    delete[] grid;
 
     return 0;
 }
