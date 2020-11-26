@@ -1,11 +1,17 @@
 #include "sudoku.h"
 #include <iostream>
 
-void Sudoku::enterDigits(int inputArr[N][N])
+int Sudoku::get_size()
+{
+    return N;
+}
+
+void Sudoku::enterDigits( )
 {
     for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++)
-            grid[i][j] = inputArr[i][j];
+        for (int j = 0; j < N; j++) {
+            std::cin >> grid[i][j];
+        }
     }
 }
 

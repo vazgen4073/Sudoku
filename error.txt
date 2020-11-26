@@ -1,0 +1,36 @@
+#include "sudoku.h"
+#include <iostream>
+
+
+int main()
+{
+
+    const int& N = Sudoku::get_size();
+    const int N_=const_cast<int&>(N) = 9;
+
+    int grid[N_][N_];
+
+    std::cout << " Enter numbers (in an empty place insert 0) \n";
+
+    for (int i = 0; i < N_; i++) {
+        for (int j = 0; j < N_; j++) {
+            std::cin >> grid[i][j];
+        }
+    }
+
+
+    Sudoku sud;
+    sud.enterDigits(grid);// error: cannot initialize a parameter of type
+                          //'int (*)[9]' with an lvalue of type 'int [N_][N_]'
+                          //header file void enterDigits(int grid[N][N]);
+                          //I think the problem is that I changed int to const
+    if (sud.Solve(0, 0)) {
+        std::cout << "Solved! \n";
+        sud.Print();
+    } else
+        std::cout << "Is not solved\n";
+
+    return 0;
+                                                                                                                      2,1           Top
+
+}
