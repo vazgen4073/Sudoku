@@ -1,7 +1,7 @@
 #include "sudoku.h"
 #include <iostream>
 
-void Sudoku::enterDigits(int** inputArr)
+void Sudoku::enterDigits(int inputArr[N][N])
 {
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++)
@@ -68,7 +68,7 @@ bool Sudoku::IsSafe(int row, int col, int num)
     if (!BoxisSafe(row, col, num)) {
         return false;
     }
-    std::cout << "Solved! \n";
+
     return true;
 }
 
@@ -99,3 +99,4 @@ bool Sudoku::Solve(int row, int col)
     }
     return false;
 }
+

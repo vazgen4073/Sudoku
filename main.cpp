@@ -1,14 +1,11 @@
 #include "sudoku.h"
 #include <iostream>
+
 int main()
 {
 
-    int N = 9;
-    int** grid;
-    grid = new int*[N];
-    for (int i = 0; i < N; i++) {
-        grid[i] = new int[N];
-    }
+    const int N = 9;
+    int grid[N][N];
 
     std::cout << " Enter numbers (in an empty place insert 0) \n";
 
@@ -19,7 +16,7 @@ int main()
     }
 
     Sudoku sud;
-    sud.enterDigits(grid);
+    sud.enterDigits(grid);  //
 
     if (sud.Solve(0, 0)) {
         std::cout << "Solved! \n";
@@ -27,10 +24,8 @@ int main()
     } else
         std::cout << "Is not solved\n";
 
-    for (int i = 0; i < N; i++) {
-        delete[] grid[i];
-    }
-    delete[] grid;
+
 
     return 0;
 }
+
