@@ -5,8 +5,8 @@ int Sudoku::get_size()
 {
     return N;
 }
-
-void Sudoku::enterDigits( )
+// added const
+void Sudoku::enterDigits()
 {
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
@@ -105,4 +105,3 @@ bool Sudoku::Solve(int row, int col)
     }
     return false;
 }
-
