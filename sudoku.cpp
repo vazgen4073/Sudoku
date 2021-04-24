@@ -1,11 +1,6 @@
 #include "sudoku.h"
 #include <iostream>
 
-int Sudoku::get_size()
-{
-    return N;
-}
-// added const
 void Sudoku::enterDigits()
 {
     for (int i = 0; i < N; i++) {
